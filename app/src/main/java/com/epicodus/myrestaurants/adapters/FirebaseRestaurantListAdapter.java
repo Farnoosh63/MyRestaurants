@@ -24,6 +24,7 @@ import com.google.firebase.database.Query;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Restaurant, FirebaseRestaurantViewHolder> implements ItemTouchHelperAdapter {
 
@@ -97,7 +98,7 @@ public class FirebaseRestaurantListAdapter extends FirebaseRecyclerAdapter<Resta
 
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
-        notifyItemMoved(fromPosition, toPosition);
+        Collections.swap(mRestaurants, fromPosition, toPosition);
         notifyItemMoved(fromPosition, toPosition);
         return false;
     }
